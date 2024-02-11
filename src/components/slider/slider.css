@@ -1,8 +1,9 @@
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .slider {
   width: 100vw;
+  height: 357px;
   position: relative;
 }
 .slider-wrapper {
@@ -16,16 +17,18 @@ body {
 }
 .slider .slide {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 20px 2%;
+  padding: 20px 4%;
   width: 100vw;
+  height: 357px;
 }
 .slider .slide img {
   width: 35%;
 }
 .slider .slide .quote {
-  width: 50%;
+  width: 55%;
+  text-align: center;
 }
 .slider .slide h1 {
   font-size: 40px;
@@ -63,7 +66,7 @@ body {
 .bi-chevron-double-left {
   position: absolute;
   top: 140px;
-  left: 5px;
+  left: 10px;
   font-size: 30px;
   z-index: 1;
   color: white;
@@ -75,7 +78,7 @@ body {
 .bi-chevron-double-right {
   position: absolute;
   top: 140px;
-  right: 5px;
+  right: 20px;
   font-size: 30px;
   z-index: 1;
   color: white;

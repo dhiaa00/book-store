@@ -1,0 +1,24 @@
+.props {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--main-color);
+}
+.prop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  padding: 25px 0;
+  width: 20%;
+  border: 2px solid #999;
+  border-radius: 40px;
+  color: #555;
+  font-weight: 700;
+}
+.prop i {
+  font-size: 40px;
+  padding-bottom: 5px;
+}

@@ -64,6 +64,8 @@ hr {
   background-color: var(--main-color);
   justify-content: center;
   color: #444;
+  transition: 0.2s;
+  clip-path: unset;
 }
 .lower-header ul {
   display: flex;
@@ -77,7 +79,16 @@ hr {
 .lower-header ul li a:hover {
   background-color: #999;
 }
-
+.bi-x-lg {
+  font-size: 25px;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  transition: 0.2s;
+}
+.bi-x-lg:hover {
+  background-color: #999;
+}
 @media (max-width: 720px) {
   .top-header .bi-list {
     display: block;
@@ -95,15 +106,22 @@ hr {
     width: 100vw;
     height: 100vh;
     clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
   }
   .lower-header ul {
     flex-direction: column;
     align-items: flex-start;
+    width: 60vw;
   }
   .lower-header ul li {
-    padding: 20px 0;
+    width: 100%;
+    display: flex;
+    flex: 1;
+  }
+  .lower-header ul li a {
+    flex: 1;
   }
 }
 @media (max-width: 580px) {

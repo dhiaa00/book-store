@@ -8,7 +8,7 @@ const Header = ({ menuClicked, setMenuClicked }) => {
     <header>
       <TopHeader menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
       <MidHeader />
-      <LowerHeader menuClicked={menuClicked} />
+      <LowerHeader menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
     </header>
   );
 };
