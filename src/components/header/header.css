@@ -1,3 +1,6 @@
+body {
+  position: relative;
+}
 header {
   display: flex;
   flex-direction: column;
@@ -14,6 +17,10 @@ header {
 }
 .top-header i {
   margin-right: 10px;
+}
+.top-header .bi-list {
+  display: none;
+  margin: 0;
 }
 .top-header a {
   color: white;
@@ -69,4 +76,48 @@ hr {
 }
 .lower-header ul li a:hover {
   background-color: #999;
+}
+
+@media (max-width: 720px) {
+  .top-header .bi-list {
+    display: block;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .top-header .phone,
+  .top-header h2 {
+    display: none;
+  }
+  .lower-header {
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .lower-header ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lower-header ul li {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 580px) {
+  .mid-header .logo {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  .mid-header .search-box {
+    width: 200px;
+    font-size: 20px;
+  }
+  .mid-header .search-box input {
+    width: 100px;
+    font-size: 18px;
+  }
 }
