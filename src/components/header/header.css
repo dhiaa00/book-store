@@ -64,7 +64,7 @@ hr {
   background-color: var(--main-color);
   justify-content: center;
   color: #444;
-  transition: 0.2s;
+  transition: 0.3s;
   clip-path: unset;
 }
 .lower-header ul {

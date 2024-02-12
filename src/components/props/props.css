@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: var(--main-color);
 }
 .prop {
   display: flex;
@@ -11,14 +10,31 @@
   align-items: center;
   justify-content: center;
   font-size: 25px;
-  padding: 25px 0;
-  width: 20%;
-  border: 2px solid #999;
-  border-radius: 40px;
+  padding: 10px 0;
+  width: 22%;
+  border: 1px solid #999;
+  border-radius: 100px;
   color: #555;
   font-weight: 700;
 }
 .prop i {
   font-size: 40px;
   padding-bottom: 5px;
+}
+@media (max-width: 920px) {
+  .props {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .props .prop {
+    width: 40%;
+  }
+}
+@media (max-width: 520px) {
+  .props {
+    justify-content: center;
+  }
+  .prop {
+    font-size: 18px;
+  }
 }

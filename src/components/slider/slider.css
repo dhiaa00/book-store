@@ -36,7 +36,7 @@ body {
   margin-bottom: 10px;
 }
 .slider .slide p {
-  margin: 21px 0;
+  margin: 15px 0;
   font-size: 24px;
   font-weight: 500;
   letter-spacing: 3px;
@@ -86,4 +86,17 @@ body {
   padding: 10px 15px;
   border-radius: 50%;
   cursor: pointer;
+}
+@media (max-width: 520px) {
+  .slider .slide h1 {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .slider .slide p {
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 3px;
+  }
 }
