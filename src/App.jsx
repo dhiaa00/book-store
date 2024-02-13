@@ -14,6 +14,8 @@ function App() {
       <Slider />
       <Props />
       <BookSlider title="Most Gifted" booksList={books} />
+      <BookSlider title="Best Seller" booksList={books} />
+      <BookSlider title="Most Wished For" booksList={books} />
     </>
   );
 }

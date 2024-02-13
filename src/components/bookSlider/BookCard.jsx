@@ -1,6 +1,15 @@
-const BookCard = ({ book }) => {
+import React, { useRef } from "react";
+
+const BookCard = ({ leftClicked, setRightDisappear, last, book }) => {
+  const lastBook = last ? useRef() : null;
+  if (last && lastBook.current) {
+    const elem = lastBook.current.getBoundingClientRect();
+    if (!leftClicked && elem.x <= window.innerWidth) {
+      setRightDisappear(true);
+    }
+  }
   return (
-    <div className="book-card">
+    <div ref={lastBook} className="book-card">
       <img src={`/books/${book.image}`} alt="book" />
       <div className="info">
         <div className="book-info">
