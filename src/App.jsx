@@ -1,24 +1,20 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/header/Header";
-import Slider from "./components/slider/Slider";
-import Props from "./components/props/Props";
-import { books } from "./data/books";
-import BookSlider from "./components/bookSlider/BookSlider";
 import Footer from "./components/footer/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
   return (
-    <>
+    <BrowserRouter>
       <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
-      <Slider />
-      <Props />
-      <BookSlider title="Most Gifted" booksList={books} />
-      <BookSlider title="Best Seller" booksList={books} />
-      <BookSlider title="Most Wished For" booksList={books} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
