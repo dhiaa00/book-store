@@ -5,6 +5,7 @@ import Slider from "./components/slider/Slider";
 import Props from "./components/props/Props";
 import { books } from "./data/books";
 import BookSlider from "./components/bookSlider/BookSlider";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
@@ -16,6 +17,7 @@ function App() {
       <BookSlider title="Most Gifted" booksList={books} />
       <BookSlider title="Best Seller" booksList={books} />
       <BookSlider title="Most Wished For" booksList={books} />
+      <Footer />
     </>
   );
 }

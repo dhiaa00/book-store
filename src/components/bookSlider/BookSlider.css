@@ -59,6 +59,7 @@
 }
 .book-card img {
   width: 190px;
+  height: 290px;
   align-self: center;
 }
 .book-card .info {
@@ -79,6 +80,15 @@
   font-size: 15px;
   margin: 10px 0 0;
   width: fit-content;
+}
+.book-card .bi-star-half,
+.book-card .bi-star-fill {
+  color: orange;
+}
+.book-card .bi-star-half,
+.book-card .bi-star-fill,
+.book-card .bi-star {
+  padding: 0 2px;
 }
 .book-card .review {
   display: flex;
@@ -104,4 +114,18 @@
   width: 100%;
   color: #444;
   border-top: 1px solid black;
+}
+.book-card .card-footer .bi-eye-fill {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.book-card .card-footer .bi-eye-fill:hover {
+  color: var(--primary-color);
+}
+.book-card .card-footer .bi-cart-plus {
+  cursor: pointer;
+  transition: 0.2s;
+}
+.book-card .card-footer .bi-cart-plus:hover {
+  color: var(--primary-color);
 }
