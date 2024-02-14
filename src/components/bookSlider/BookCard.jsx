@@ -1,6 +1,19 @@
 import React, { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { adding } from "../../features/itemSlice";
 
 const BookCard = ({ leftClicked, setRightDisappear, last, book }) => {
+  // redux toolkit items state
+  const dispatch = useDispatch();
+  const itemNumber = useSelector((state) => state.itemShoped.value);
+  const itemsList = useSelector((state) => state.itemShoped.items);
+
+  const handleAddToCart = () => {
+    dispatch(adding(book.id));
+    console.log(itemNumber);
+    console.log(itemsList);
+  };
+
   const lastBook = last ? useRef() : null;
   if (last && lastBook.current) {
     const elem = lastBook.current.getBoundingClientRect();
@@ -40,7 +53,7 @@ const BookCard = ({ leftClicked, setRightDisappear, last, book }) => {
         </div>
         <div className="card-footer">
           <i className="bi bi-eye-fill"></i>
-          <i className="bi bi-cart-plus"></i>
+          <i className="bi bi-cart-plus" onClick={handleAddToCart}></i>
         </div>
       </div>
     </div>

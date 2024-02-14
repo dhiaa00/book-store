@@ -38,3 +38,25 @@ h2 {
 li {
   list-style-type: none;
 }
+.search-box {
+  flex: 0.8;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+.search-box input {
+  margin-left: 20px;
+  flex: 1;
+  padding: 5px;
+  border: none;
+  font-size: 20px;
+}
+.search-box input:focus {
+  outline: none;
+}
+.search-box .bi-search {
+  padding: 0 20px;
+  color: #888;
+  cursor: pointer;
+}

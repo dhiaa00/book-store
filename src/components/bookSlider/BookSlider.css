@@ -47,7 +47,7 @@
   flex-wrap: nowrap;
   top: 100px;
   gap: 20px;
-  transition: 0.5s;
+  transition: 1s;
 }
 .book-card {
   display: flex;

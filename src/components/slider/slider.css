@@ -13,7 +13,7 @@ body {
   z-index: 0;
   display: flex;
   flex-wrap: nowrap;
-  transition: 0.5s;
+  transition: 1s;
 }
 .slider .slide {
   display: flex;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TopHeader = ({ menuClicked, setMenuClicked }) => {
   return (
@@ -14,10 +15,10 @@ const TopHeader = ({ menuClicked, setMenuClicked }) => {
           123-456-789
         </div>
         <h2>Welcome To Bookyy</h2>
-        <a href="" className="login-link">
+        <Link to="/login" className="login-link">
           <i className="bi bi-person-fill"></i>
           Login
-        </a>
+        </Link>
       </div>
       <hr />
     </>

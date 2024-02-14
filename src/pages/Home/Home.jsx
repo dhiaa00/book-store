@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "../../components/slider/Slider";
 import Props from "../../components/props/Props";
 import { books } from "../../data/books";

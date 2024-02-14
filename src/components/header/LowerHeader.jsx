@@ -1,32 +1,51 @@
-import React from "react";
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const LowerHeader = ({ menuClicked, setMenuClicked }) => {
+  const closeButton = useRef();
   const menyStyle = menuClicked ? "polygon(0 0, 60% 0, 60% 100%, 0 100%)" : "";
+
+  // close the menu
+  const handleClose = () => {
+    closeButton.current.click();
+  };
+
   return (
     <div
       className="lower-header header-section"
       style={{ clipPath: menyStyle }}>
       {menuClicked && (
         <i
+          ref={closeButton}
           className="bi bi-x-lg"
           onClick={() => setMenuClicked(!menuClicked)}></i>
       )}
       <nav>
         <ul>
           <li>
-            <a href="">Home</a>
+            <Link onClick={handleClose} to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <a href="">Authors</a>
+            <Link onClick={handleClose} to="/authors">
+              Authors
+            </Link>
           </li>
           <li>
-            <a href="">About Us</a>
+            <Link onClick={handleClose} to="/about">
+              About Us
+            </Link>
           </li>
           <li>
-            <a href="">Contact Us</a>
+            <Link onClick={handleClose} to="/contact">
+              Contact Us
+            </Link>
           </li>
           <li>
-            <a href="">Register</a>
+            <Link onClick={handleClose} to="/register">
+              Register
+            </Link>
           </li>
         </ul>
       </nav>
