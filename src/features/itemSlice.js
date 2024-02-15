@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { value: 0, items: [] };
+const initialState = { value: 0, items: {} };
 
 export const itemSlice = createSlice({
   name: "counter",
@@ -8,7 +8,7 @@ export const itemSlice = createSlice({
   reducers: {
     adding: (state, action) => {
       state.value++;
-      state.items.push(action.payload);
+      state.items[action.payload] = (state.items[action.payload] || 0) + 1;
     },
   },
 });

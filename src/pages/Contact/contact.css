@@ -24,6 +24,12 @@
 .contact-ways .contact-section h2 {
   margin-bottom: 10px;
 }
+@media (max-width: 480px) {
+  .contact-ways .email p {
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+}
 form {
   display: flex;
   flex-direction: column;
@@ -38,6 +44,7 @@ form .name-subject-mail {
   justify-content: space-between;
   gap: 20px;
 }
+
 form .name-subject-mail input {
   padding: 10px;
   width: 30%;

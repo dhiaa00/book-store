@@ -10,8 +10,6 @@ const BookCard = ({ leftClicked, setRightDisappear, last, book }) => {
 
   const handleAddToCart = () => {
     dispatch(adding(book.id));
-    console.log(itemNumber);
-    console.log(itemsList);
   };
 
   const lastBook = last ? useRef() : null;

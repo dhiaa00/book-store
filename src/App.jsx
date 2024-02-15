@@ -11,6 +11,7 @@ import Register from "./pages/forms/Register";
 import Login from "./pages/forms/Login";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import Cart from "./pages/cart/Cart";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </Provider>
