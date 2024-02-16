@@ -15,9 +15,10 @@ Open your terminal and execute the following commandes:
 git clone https://github.com/dhiaa00/book-store.git
 cd book-store
 npm install
+```
 Use code with caution. Learn more
 This will clone the project's code and install all the necessary dependencies.
-```
+
 
 **2. Start the Development Server:**
 
@@ -25,5 +26,6 @@ Run the following command to launch the development server:
 
 ```Bash
 npm run dev
+```
 Use code with caution. Learn more
 This will fire up Vite, automatically opening your browser to http://localhost:5173 to showcase your project in all its glory!
