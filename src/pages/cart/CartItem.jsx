@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { adding, deleteItem, minus } from "../../features/itemSlice";
 
 const CartItem = ({ quantity, book }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
+  const dispatch = useDispatch();
+  const itemNumber = useSelector((state) => state.itemShoped.value);
+  const itemsList = useSelector((state) => state.itemShoped.items);
 
   return (
     <div className="cart-item">
@@ -21,7 +26,10 @@ const CartItem = ({ quantity, book }) => {
           <div className="item-quantity">
             <button
               className="price-button plus"
-              onClick={() => setItemQuantity(itemQuantity + 1)}>
+              onClick={() => {
+                setItemQuantity(itemQuantity + 1);
+                dispatch(adding(book.id));
+              }}>
               +
             </button>
             {itemQuantity}
@@ -32,14 +40,24 @@ const CartItem = ({ quantity, book }) => {
             ) : (
               <button
                 className="price-button minus"
-                onClick={() => setItemQuantity(itemQuantity - 1)}>
+                onClick={() => {
+                  setItemQuantity(itemQuantity - 1);
+                  dispatch(minus(book.id));
+                }}>
                 -
               </button>
             )}
           </div>
-          <div className="item-price">${book.price * itemQuantity}</div>
+          <div className="item-price">
+            ${(book.price * itemQuantity).toFixed(2)}
+          </div>
         </div>
       </div>
+      <i
+        className="bi bi-trash-fill"
+        onClick={() => {
+          dispatch(deleteItem(book.id));
+        }}></i>
     </div>
   );
 };

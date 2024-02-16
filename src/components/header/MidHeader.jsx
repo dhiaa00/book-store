@@ -16,7 +16,9 @@ const MidHeader = () => {
         <i className="bi bi-search"></i>
       </div>
       <Link to="./cart" className="cart-link">
-        {itemNumber !== 0 && <div className="items">{itemNumber}</div>}
+        {itemNumber !== 0 && (
+          <div className="items">{itemNumber <= 9 ? itemNumber : "+9"}</div>
+        )}
         <i className="bi bi-cart2"></i>
       </Link>
     </div>

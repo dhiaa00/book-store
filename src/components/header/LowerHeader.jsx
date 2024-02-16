@@ -7,7 +7,7 @@ const LowerHeader = ({ menuClicked, setMenuClicked }) => {
 
   // close the menu
   const handleClose = () => {
-    closeButton.current.click();
+    menuClicked ? closeButton.current.click() : null;
   };
 
   return (
@@ -22,30 +22,20 @@ const LowerHeader = ({ menuClicked, setMenuClicked }) => {
       )}
       <nav>
         <ul>
-          <li>
-            <Link onClick={handleClose} to="/">
-              Home
-            </Link>
+          <li onClick={handleClose}>
+            <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link onClick={handleClose} to="/authors">
-              Authors
-            </Link>
+          <li onClick={handleClose}>
+            <Link to="/authors">Authors</Link>
           </li>
-          <li>
-            <Link onClick={handleClose} to="/about">
-              About Us
-            </Link>
+          <li onClick={handleClose}>
+            <Link to="/about">About Us</Link>
           </li>
-          <li>
-            <Link onClick={handleClose} to="/contact">
-              Contact Us
-            </Link>
+          <li onClick={handleClose}>
+            <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
-            <Link onClick={handleClose} to="/register">
-              Register
-            </Link>
+          <li onClick={handleClose}>
+            <Link to="/register">Register</Link>
           </li>
         </ul>
       </nav>

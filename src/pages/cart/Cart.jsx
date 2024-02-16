@@ -9,6 +9,7 @@ const Cart = () => {
   const itemNumber = useSelector((state) => state.itemShoped.value);
   const itemList = useSelector((state) => state.itemShoped.items);
   const cartItemList = [];
+  const totalPrice = 0;
 
   for (let i = 0; i < Object.keys(itemList).length; i++) {
     cartItemList.push(
@@ -33,6 +34,13 @@ const Cart = () => {
         ) : (
           cartItemList
         )}
+      </div>
+      <div className="final-price-section">
+        <h3>ORDER SUMMARY</h3>
+        <div className="final-price">
+          <h4>Total</h4>
+          <p>{totalPrice}</p>
+        </div>
       </div>
     </div>
   );

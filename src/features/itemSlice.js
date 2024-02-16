@@ -10,9 +10,17 @@ export const itemSlice = createSlice({
       state.value++;
       state.items[action.payload] = (state.items[action.payload] || 0) + 1;
     },
+    minus: (state, action) => {
+      state.value--;
+      state.items[action.payload]--;
+    },
+    deleteItem: (state, action) => {
+      state.value = state.value - state.items[action.payload];
+      delete state.items[action.payload];
+    },
   },
 });
 
-export const { adding } = itemSlice.actions;
+export const { adding, minus, deleteItem } = itemSlice.actions;
 
 export default itemSlice.reducer;
