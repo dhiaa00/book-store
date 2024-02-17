@@ -9,7 +9,7 @@ const Cart = () => {
   const itemNumber = useSelector((state) => state.itemShoped.value);
   const itemList = useSelector((state) => state.itemShoped.items);
   const cartItemList = [];
-  const totalPrice = 0;
+  let totalPrice = 0;
 
   for (let i = 0; i < Object.keys(itemList).length; i++) {
     cartItemList.push(
@@ -19,6 +19,10 @@ const Cart = () => {
         book={books[Object.keys(itemList)[i] - 1]}
       />
     );
+    totalPrice =
+      totalPrice +
+      books[Object.keys(itemList)[i] - 1].price *
+        itemList[Object.keys(itemList)[i]];
   }
 
   return (
@@ -38,9 +42,12 @@ const Cart = () => {
       <div className="final-price-section">
         <h3>ORDER SUMMARY</h3>
         <div className="final-price">
-          <h4>Total</h4>
-          <p>{totalPrice}</p>
+          <h4>Total: </h4>
+          <p> ${totalPrice.toFixed(2)}</p>
         </div>
+      </div>
+      <div className="confirm-purchase-button">
+        <button>Confirm Purchase</button>
       </div>
     </div>
   );
