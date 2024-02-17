@@ -12,6 +12,7 @@ import Login from "./pages/forms/Login";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
 import Cart from "./pages/cart/Cart";
+import SingleBook from "./pages/singleBook/SingleBook";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/books/:id" element={<SingleBook />} />
       </Routes>
       <Footer />
     </Provider>

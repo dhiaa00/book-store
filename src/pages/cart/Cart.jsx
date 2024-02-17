@@ -39,16 +39,20 @@ const Cart = () => {
           cartItemList
         )}
       </div>
-      <div className="final-price-section">
-        <h3>ORDER SUMMARY</h3>
-        <div className="final-price">
-          <h4>Total: </h4>
-          <p> ${totalPrice.toFixed(2)}</p>
-        </div>
-      </div>
-      <div className="confirm-purchase-button">
-        <button>Confirm Purchase</button>
-      </div>
+      {itemNumber !== 0 && (
+        <>
+          <div className="final-price-section">
+            <h3>ORDER SUMMARY</h3>
+            <div className="final-price">
+              <h4>Total: </h4>
+              <p> ${totalPrice.toFixed(2)}</p>
+            </div>
+          </div>
+          <div className="confirm-purchase-button">
+            <button>Confirm Purchase</button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

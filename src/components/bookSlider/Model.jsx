@@ -1,34 +1,39 @@
-import React from "react";
+import React, { useRef } from "react";
 import Rating from "./Rating";
+import ModelAddToCart from "./ModelAddToCart";
+import { Link } from "react-router-dom";
 
-const Model = ({ book }) => {
+const Model = ({ setShowDetails, book }) => {
+  const closeButton = useRef();
+
   return (
     <div className="model-container">
       <div className="model-content">
-        <img src="" alt="" />
+        <i
+          ref={closeButton}
+          className="bi bi-x-lg"
+          onClick={() => {
+            setShowDetails(-1);
+          }}></i>
+        <img src={`/books/${book.image}`} alt="book" />
         <div className="model-infos">
           <h2>{book.title}</h2>
           <div className="model-info">
-            <span>Status: </span>
-            {book.status}
+            <span>Status:</span>
+            On stock
           </div>
           <Rating rating={book.rating} reviews={book.reviews} />
           <div className="model-info">
-            <span>Author: </span>
+            <span>Author:</span>
             {book.author}
           </div>
           <div className="model-info">
-            <span>Price: </span>
-            {book.price}
+            <span>Price:</span>${book.price}
           </div>
-          <div className="model-info">
-            <input type="number" value={1} />
-            <button className="add-to-cart-button">
-              <i className="bi bi-cart-plus"></i>
-              Add To Cart
-            </button>
-          </div>
-          <button className="see-more-button">See More Details</button>
+          <ModelAddToCart closeButton={closeButton} book={book} />
+          <Link to={`./books/${book.id - 1}`} className="see-more-button">
+            See More Details
+          </Link>
         </div>
       </div>
     </div>

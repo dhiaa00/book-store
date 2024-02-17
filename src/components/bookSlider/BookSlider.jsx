@@ -2,11 +2,18 @@ import { useRef } from "react";
 import BookCard from "./BookCard";
 import "./BookSlider.css";
 import { useState } from "react";
+import Model from "./Model";
 
 const BookSlider = ({ title, booksList }) => {
   const [swipesNumber, setSwipeNumber] = useState(0);
   const [rightDisappear, setRightDisappear] = useState(false);
   const [leftClicked, setLeftClicked] = useState(false);
+
+  // to show book detail
+  const [showDetails, setShowDetails] = useState(-1);
+
+  //
+
   const bookSlider = useRef();
   const booknumber = booksList.length;
 
@@ -27,30 +34,44 @@ const BookSlider = ({ title, booksList }) => {
   };
 
   return (
-    <div className="book-slider">
-      {swipesNumber !== 0 && (
-        <i className="bi bi-chevron-left" onClick={handleLeft}></i>
-      )}
-      {!rightDisappear && (
-        <i className="bi bi-chevron-right" onClick={handleRight}></i>
-      )}
-      <h2>{title}</h2>
-      <div className="book-slider-container" ref={bookSlider}>
-        {booksList.map((book, index) =>
-          index === booknumber - 1 ? (
-            <BookCard
-              leftClicked={leftClicked}
-              setRightDisappear={setRightDisappear}
-              last={true}
-              key={book.id}
-              book={book}
-            />
-          ) : (
-            <BookCard last={false} key={book.id} book={book} />
-          )
+    <>
+      <div className="book-slider">
+        {swipesNumber !== 0 && (
+          <i className="bi bi-chevron-left" onClick={handleLeft}></i>
         )}
+        {!rightDisappear && (
+          <i className="bi bi-chevron-right" onClick={handleRight}></i>
+        )}
+        <h2>{title}</h2>
+        <div className="book-slider-container" ref={bookSlider}>
+          {booksList.map((book, index) =>
+            index === booknumber - 1 ? (
+              <BookCard
+                setShowDetails={setShowDetails}
+                leftClicked={leftClicked}
+                setRightDisappear={setRightDisappear}
+                last={true}
+                book={book}
+                key={book.id}
+              />
+            ) : (
+              <BookCard
+                setShowDetails={setShowDetails}
+                last={false}
+                key={book.id}
+                book={book}
+              />
+            )
+          )}
+        </div>
       </div>
-    </div>
+      {showDetails !== -1 && (
+        <Model
+          setShowDetails={setShowDetails}
+          book={booksList[showDetails - 1]}
+        />
+      )}
+    </>
   );
 };
 

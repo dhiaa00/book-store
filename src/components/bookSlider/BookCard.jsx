@@ -1,12 +1,16 @@
 import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { adding } from "../../features/itemSlice";
-import Model from "./Model";
 import Rating from "./Rating";
+import useWindowDimensions from "../../features/useWindowDimensions";
 
-const BookCard = ({ leftClicked, setRightDisappear, last, book }) => {
-  const [showDetails, setShowDetails] = useState(false);
-
+const BookCard = ({
+  setShowDetails,
+  leftClicked,
+  setRightDisappear,
+  last,
+  book,
+}) => {
   // redux toolkit items state
   const dispatch = useDispatch();
   const itemNumber = useSelector((state) => state.itemShoped.value);
@@ -16,10 +20,13 @@ const BookCard = ({ leftClicked, setRightDisappear, last, book }) => {
     dispatch(adding(book.id));
   };
 
+  //stop swipping
+
+  const { height, width } = useWindowDimensions();
   const lastBook = last ? useRef() : null;
   if (last && lastBook.current) {
     const elem = lastBook.current.getBoundingClientRect();
-    if (!leftClicked && elem.x <= window.innerWidth) {
+    if (!leftClicked && elem.x <= width) {
       setRightDisappear(true);
     }
   }
@@ -37,12 +44,15 @@ const BookCard = ({ leftClicked, setRightDisappear, last, book }) => {
             </div>
           </div>
           <div className="card-footer">
-            <i className="bi bi-eye-fill"></i>
+            <i
+              className="bi bi-eye-fill"
+              onClick={() => {
+                setShowDetails(book.id);
+              }}></i>
             <i className="bi bi-cart-plus" onClick={handleAddToCart}></i>
           </div>
         </div>
       </div>
-      {showDetails && <Model book={book} />}
     </>
   );
 };
