@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Authors from "./pages/authors/authors";
 import About from "./pages/About/about";
@@ -15,22 +15,26 @@ import Cart from "./pages/cart/Cart";
 
 function App() {
   const [menuClicked, setMenuClicked] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
-    <BrowserRouter>
-      <Provider store={store}>
-        <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/authors" element={<Authors />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-        <Footer />
-      </Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <Header menuClicked={menuClicked} setMenuClicked={setMenuClicked} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/authors" element={<Authors />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+      <Footer />
+    </Provider>
   );
 }
 
