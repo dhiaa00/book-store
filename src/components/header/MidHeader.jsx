@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { books } from "../../data/books";
 
 const MidHeader = () => {
   const itemNumber = useSelector((state) => state.itemShoped.value);
+  const [searchBooks, setSearchBooks] = useState("");
+  const list = books
+    .filter((book) => book.title.toLowerCase().includes(searchBooks))
+    .map((e) => <Link to={`./books/${e.id - 1}`}>{e.title}</Link>);
+
   return (
     <div className="mid-header header-section">
       <Link to="./">
@@ -12,8 +18,14 @@ const MidHeader = () => {
         </div>
       </Link>
       <div className="search-box">
-        <input type="search" placeholder="Search in Bookyy..." />
+        <input
+          type="search"
+          placeholder="Search for books.."
+          value={searchBooks}
+          onChange={(e) => setSearchBooks(e.target.value)}
+        />
         <i className="bi bi-search"></i>
+        {searchBooks && <div className="searched-items">{list}</div>}
       </div>
       <Link to="./cart" className="cart-link">
         {itemNumber !== 0 && (

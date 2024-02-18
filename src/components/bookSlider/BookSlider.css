@@ -144,9 +144,10 @@
   justify-content: center;
   align-items: center;
 }
+
 .model-content {
   position: relative;
-  width: 80vw;
+  width: 60vw;
   height: 80vh;
   background-color: white;
   border-radius: 20px;
@@ -155,6 +156,7 @@
   justify-content: center;
   align-items: center;
   gap: 5%;
+  animation: popUp 1s ease-in-out;
 }
 .model-content img {
   height: 100%;
@@ -216,4 +218,18 @@
   border-radius: 50%;
   top: 0;
   right: 0;
+}
+@keyframes popUp {
+  0% {
+    width: 0vw;
+    height: 0vh;
+  }
+  80% {
+    width: 65vw;
+    height: 85vh;
+  }
+  100% {
+    width: 60vw;
+    height: 80vh;
+  }
 }

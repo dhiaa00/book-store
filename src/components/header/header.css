@@ -137,3 +137,29 @@ hr {
     font-size: 18px;
   }
 }
+
+header .search-box {
+  position: relative;
+}
+
+.searched-items {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  top: 100%;
+  left: 20px;
+  z-index: 2;
+  width: 80%;
+}
+.searched-items a {
+  font-size: 14px;
+  padding: 5px;
+
+  border-bottom: 1px solid black;
+  transition: 0.3s;
+}
+.searched-items a:hover {
+  background-color: rgb(0, 170, 170);
+}
