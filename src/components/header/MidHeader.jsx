@@ -12,6 +12,12 @@ const MidHeader = () => {
     .filter((book) => book.title.toLowerCase().includes(searchBooks))
     .map((e) => <Link to={`./books/${e.id - 1}`}>{e.title}</Link>);
 
+  // make the search result disappear when changing the route
+  const location = useLocation();
+  useEffect(() => {
+    setSearchBooks("");
+  }, [location]);
+
   return (
     <div className="mid-header header-section">
       <Link to="./">
