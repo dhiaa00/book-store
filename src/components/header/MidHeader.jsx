@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { books } from "../../data/books";
 
 const MidHeader = () => {
-  const itemNumber = useSelector((state) => state.itemShoped.value);
+  const itemNumber = Object.keys(
+    useSelector((state) => state.itemShoped.items)
+  ).length;
   const [searchBooks, setSearchBooks] = useState("");
   const list = books
     .filter((book) => book.title.toLowerCase().includes(searchBooks))
