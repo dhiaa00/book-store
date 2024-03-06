@@ -1,5 +1,19 @@
 # Bookyy Book-Store
 
+**This project showcases a responsive web application built with ReactJS, Redux Toolkit, and custom CSS, provides a user-friendly experience for book enthusiasts.**
+
+### Features
+
+* **Effortless Shopping Cart:** Add and remove books from your cart with ease, streamlining the book purchasing process.
+* **Search Functionality:** Discover your next read by searching for authors and book titles in the dedicated search section.
+* **Customizable Browsing:** Navigate through a diverse selection of books using the intuitive slider, built entirely from scratch.
+* **Responsive Design:** Ensures optimal user experience across all devices.
+
+### Built With
+
+* ReactJS: Efficient and flexible JavaScript library for building user interfaces.
+* Redux Toolkit: Streamlines building and managing application state with Redux.
+
 ##  Ready to Explore? Here's How to Run This Project:
 
 This project utilizes Vite for a blazing-fast development experience and efficient build process. To embark on your tour, please ensure you have the following prerequisites:
